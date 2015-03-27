@@ -1,0 +1,26 @@
+; $Id: $
+
+name = mulpo
+description = Minimalistic two-column theme.
+screenshot = images/screenshot.png
+version = VERSION
+core = 7.x
+engine = phptemplate
+
+stylesheets[all][] = style.css
+
+regions[sidebar_first] = Left sidebar
+regions[footer] = Footer
+regions[content_bottom] = content bottom
+regions[header]         = header
+regions[closure_region] = closure
+regions[content] = Content
+regions[content_top] = Content top
+regions[help] = Help
+
+; Information added by drupal.org packaging script on 2011-05-22
+version = "7.x-1.0-alpha1"
+core = "7.x"
+project = "mulpo"
+datestamp = "1306100816"
+

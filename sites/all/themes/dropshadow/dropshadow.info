@@ -1,0 +1,22 @@
+name = Dropshadow
+description = A one sidebar theme ideal for blogs.
+screenshot = images/screenshot.png
+core = 6.x
+engine = phptemplate
+features[] = name
+features[] = slogan
+features[] = search
+features[] = favicon
+features[] = primary_links
+features[] = secondary_links
+stylesheets[all][] = style.css
+regions[right] = Right sidebar
+regions[left] = Left sidebar
+regions[footer] = Footer
+regions[content_top] = Content Top
+; Information added by drupal.org packaging script on 2011-04-16
+version = "7.x-2.0-unstable1"
+core = "7.x"
+project = "dropshadow"
+datestamp = "1302927715"
+

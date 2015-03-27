@@ -1,0 +1,8 @@
+
+RewriteEngine on
+# Use PHP5.4 as default
+AddHandler application/x-httpd-php54 .php
+RewriteCond %{HTTP_HOST} ^dev\.gracecovenant\.info$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.dev\.gracecovenant\.info$
+RewriteRule ^/?$ "http\:\/\/gracecovenant\.info" [R=301,L]
+

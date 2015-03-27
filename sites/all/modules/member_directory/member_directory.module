@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Member Directory feature.
+ */
+
+include_once 'member_directory.features.inc';
