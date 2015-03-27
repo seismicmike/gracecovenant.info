@@ -3,23 +3,28 @@
 -------------------------------------------------------------- */
 /* Add general site styling here for typography and background */
 body {
-  font-size: 75%;   /* also set in fusion_starter.info: settings[base-font-size] = font-size-12 */
-  color: #2e2e2e;
+  font-size: 13px;
+  font-family: Arial,Helvetica,Verdana,sans-serif;
 }
 
-  /** alternate white foreground trick for fluid, doesn't go 100% of height **/
-  body.grid-type-fluid #header-group,
-  body.grid-type-fluid #main,
-  body.grid-type-fluid #footer {
-    border-left: 25px solid #fff; border-right: 25px solid #fff; background: #fff;
+/* Force 960 as Desktop max-width */
+@media all and (min-width: 851px) {
+  #header div.section,
+  #featured div.section,
+  #messages div.section,
+  #main,
+  #triptych,
+  #footer-columns,
+  #footer {
+    max-width: 960px;
   }
-  body.grid-type-fluid #main { position: relative; top: -3px; /* fluid fix */ }
+}
+
 
 /* Default link styles - separate a:visited for a different visited link style */
 a,
 a:link,
 a:visited {
-  color: #4a7470;
   text-decoration: underline;
 }
 
@@ -27,17 +32,38 @@ a:visited {
 a:hover,
 a:focus,
 a:active {
-  text-docoration: none;
+  text-decoration: none;
 }
 
 
 /* Specific Typography
 -------------------------------------------------------------- */
+#name-and-slogan {
+  padding: 16px 0 0;
+  margin: 0 0 42px 15px;
+}
 #site-name {
-  margin-top: 20px;
   font-family: Georgia; /** default if google fonts not enabled **/
-  font-size: 2.4em;
-  padding-bottom: 20px; /* ie7 fix */
+  font-size: 2.2em;
+  margin-top: 9px;
+  margin-bottom: 7px;
+  max-width: 260px; /* For long titles */
+}
+
+#site-name a:link,
+#site-name a:visited,
+#site-name a:hover,
+#site-name a:active {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+#content h3.title, #content h2.pane-title {
+  padding: 10px 13px;
+  margin-bottom: 1em;
 }
 
 /* HTML Elements
@@ -46,8 +72,50 @@ body {
 }
 
 /* Google fonts */
-body h1.title, body #site-name, body h2.block-title, body h2.pane-title {
-  font-family: "Neuton"; font-weight: normal;
+body h1.title, body #site-name, .sidebar h2, h2.pane-title, #triptych h2 {
+  font-family: "Neuton", Georgia; font-weight: normal;
+}
+
+#header-inner {
+  background-image: url('../images/oc-gray-header-bg.png');
+  background-position: bottom left;
+  background-repeat: repeat-x;
+}
+
+.region-header {
+  border: 0;
+}
+
+/* Forms
+-------------------------------------------------------------- */
+#main-wrapper input.form-text,
+#main-wrapper textarea {
+  padding: 9px;
+  border: solid 1px #E5E5E5;
+  outline: 0;
+  background: #FFFFFF;
+  background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
+  background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);
+  box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+  -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+  -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+  max-width: 100%;
+}
+
+#main-wrapper textarea {
+  line-height: 150%;
+}
+
+#main-wrapper input.form-text:hover,
+#main-wrapper textarea:hover,
+#main-wrapper input.form-text:focus,
+#main-wrapper textarea:focus {
+  border-color: #C9C9C9;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
+}
+
+#main-wrapper .form-item label {
+  color: #999999;
 }
 
 /* Site Info
@@ -56,291 +124,176 @@ body h1.title, body #site-name, body h2.block-title, body h2.pane-title {
   needed */
 #logo {
   float: left;
-  margin-right: 20px;
+  padding: 2px 5px 15px 10px;
 }
 
-/* Link and hover styles for site name */
-#site-name a:link,
-#site-name a:visited,
-#site-name a:hover,
-#site-name a:active {
-  color: #454344;
+#logo img {
+  /*height: 40px;*/
 }
-
-/* Typography for site slogan */
-#slogan {
-}
-
 
 /* Regions
 -------------------------------------------------------------- */
 
-/* All Regions
--------------------------------------------------------------- */
-.page {
-}
-
-.row {
-}
-  /** override default bc kills the top border on the primary tabs **/
-  .row, .nested, .block { overflow: visible; }
 
 /* Site info + Header Region
 -------------------------------------------------------------- */
 .header-group {
   position: relative;
-  height: 90px;
   z-index: 500;
-}
-  #header-site-info { margin-top: 30px; }
-
-/* Primary Menu
-/-------------------------------------------------------------- */
-/* Add general styles for primary menu here, such as typography, borders, floats,
-  or spacing above/below */
-
-#block-superfish-1 {
-  float: right;
-  width: auto;
-  margin-top: 17px;
-  overflow: visible;
+  height: 83px;
+  margin-bottom: 10px;
 }
 
-#block-superfish-1 .inner {
-  position: relative;
+#header-site-info {
+  margin-top: 0;
+  padding-top: 15px;
 }
 
-/* styles for Superfish primary menu */
-#block-superfish-1 ul.sf-menu, #block-superfish-1 ul {
-  margin-left: 0;
-}
 
-#block-superfish-1 .sf-shadow ul {
-  border-radius: 0;
-  -moz-border-radius-bottomleft: 0;
-  -moz-border-radius-topright: 0;
-  -webkit-border-top-right-radius: 0;
-  -webkit-border-bottom-left-radius: 0;
-}
-
-/* Link style for top level menu items, add padding here */
-#block-superfish-1 ul.sf-menu a,
-#block-superfish-1 ul.sf-menu a:visited  {
-  border-top: 7px solid #fff;
-  padding: .2em .4em;
-  color: #454344;
-  font-weight: normal;
-  font-size: 1.1em;
-  text-decoration: none;
-}
-
-#block-superfish-1 ul.sf-menu a.active {
-  font-weight: bold;
-  border-top: 7px solid #d6e6c2;
-}
-
-#block-superfish-1 ul.sf-menu a:hover,
-#block-superfish-1 ul.sf-menu a:active,
-#block-superfish-1 ul.sf-menu a:focus {
-  border-top: 7px solid #d6edf5;
-}
-
-/* These are the top level menu items, add border-right here for separators */
-#block-superfish-1 ul.sf-menu li {
-  margin-left: 1.5em;
-}
-
-/* Add border-right: 0; here to remove separator on last menu item */
-#block-superfish-1 ul.sf-menu li.last {
-}
-
-/* Style for container of dropdown, add background or border */
-#block-superfish-1 ul.sf-menu ul {
-  background: #e2efd3;
-  border: 1px solid #ccc;
-}
-
-/* Style for individual dropdown menu items, add border-bottom for separators */
-#block-superfish-1 ul.sf-menu li li {
-  margin-left: 0;
-}
-  #block-superfish-1 ul.sf-menu li li a,
-  #block-superfish-1 ul.sf-menu li li a.active,
-  #block-superfish-1 ul.sf-menu li li a:visited {
-    border-top: 5px solid #fff;
-  }
-  #block-superfish-1 ul.sf-menu li li a:hover {
-    border-top: 5px solid #ccc;
-    background: #d6edf5;
-  }
-
-#block-superfish-1 ul.sf-menu li li.last {
-
-}
-
-#block-superfish-1 ul.sf-menu li li li {
-}
-
-/* Style for hover of dropdown menu items (add background-color here) */
-#block-superfish-1 ul.sf-menu li ul li:hover,
-#block-superfish-1 ul.sf-menu li ul li.sfHover {
-}
-
-/* Secondary menu
+/* Footer
 -------------------------------------------------------------- */
-
-#block-menu-menu-secondary-links {
-  padding-top: 1em;
+#footer-wrapper {
+  padding-top: 10px;
 }
 
-#block-menu-menu-secondary-links h2.title { display: none; }
-
-#block-menu-menu-secondary-links ul.menu { text-align: right; font-size: 1.1em; }
-  #block-menu-menu-secondary-links .inner { margin-left: 0; margin-right: 0; }
-
-
-/* Styles for links */
-#block-menu-menu-secondary-links ul.menu li a:link,
-#block-menu-menu-secondary-links ul.menu li a:visited {
-  color: #38735f;
-  white-space: nowrap;
+#footer {
+  margin-top: 0;
+  border-top: 0;
 }
 
-
-#main-menu-wrapper {
-  clear: none;
+@media all and (min-width: 461px) {
+  #footer #block-search-form {
+    width: 40%;
+    float: left;
+  }
+  #footer #block-search-form input.form-text {
+    float: left;
+    width: 60%;
+  }
+  #footer #block-menu-menu-secondary-links {
+    float: right;
+    clear: none;
+    width: auto;
+  }
 }
 
-/**
- * Mobile menu block
- */
-#header-group-inner .block-menu-block {
-  display: none;
+#footer #block-search-form input.form-text {
+  height: 15px;
 }
 
-/* Footer - Search
--------------------------------------------------------------- */
-
-#block-search-form {
-  width: auto;
-  font-size: 1.1em;
-  padding-top: 1em;
+#footer #block-menu-menu-secondary-links {
+  margin-top: 9px;
+  margin-right: 15px;
 }
 
-#block-search-form input.form-text {
-  border: 1px solid #afafaf;
-  border-top-color: #7e8689;
-  color: #5d6265;
-  float: left;
-  width: 23em;
-  height: 25px;
-  line-height: 23px;
-  text-indent: .3em;
-}
-
-#block-search-form input.form-submit {
-  border: 1px solid #afafaf;
-  background: #b4c3c8;
-  width: 6em;
-  height: 31px;
-  border-top-color: #7e8689;
-  color: #5d6265;
-  float: left;
-  cursor: pointer;
-  margin: 0;
-  padding: 0;
+#footer #block-menu-menu-secondary-links ul.menu li {
+  display: inline;
 }
 
 /*  Main Area (content + sidebars)
 -------------------------------------------------------------- */
-.main {
-  clear: both;/* opera fix*/
+body.front #main {
+  margin-bottom: 0;
 }
 
-#block-system-main .gutter {
-  margin-left: 1px;
-  margin-right: 19px;
+#main {
+  margin-bottom: 20px;
 }
-
-#content-group-inner { margin-left: 10px; margin-right: 10px; }
 
 /* Sidebar Regions
 -------------------------------------------------------------- */
-/* Sidebar widths can be controlled through theme settings */
-.sidebar-first {
+
+.sidebar h2 {
+  border-bottom: 0;
+  padding: 10px 13px;
+  text-shadow: none;
+  border-radius: .3em .3em 0 0;
+  -webkit-border-radius: .3em .3em 0 0;
+  -moz-border-radius: .3em .3em 0 0;
+  font-size: 18px;
 }
 
-.sidebar-last {
+.sidebar .block {
+  border: 0;
+  border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  padding: 0;
 }
 
-/* Content Regions
--------------------------------------------------------------- */
+.sidebar .block:last-child {
+  margin-bottom: 0;
+}
+
 .content {
+  margin-top: 10px;
 }
 
-/*  Footer Region
+.sidebar .content {
+  padding: 0 10px 15px;
+}
+
+
+/*  Bottom Blocks Area
 -------------------------------------------------------------- */
-.footer {
+
+#triptych-wrapper {
+  background: #fff;
+  border-top: 0;
 }
 
-  body.not-front .footer { padding-top: 2em; }
+#triptych .region {
+  padding: 0;
+}
 
-.footer .block { margin-bottom: .5em; }
-  body .footer .block .inner div.content { padding: 0 1px; }
+@media all and (max-width: 850px) {
+  .region-triptych-first, .region-triptych-middle, .region-triptych-last {
+    width: 100%;
+  }
+  #triptych-wrapper {
+    padding: 0 15px;
+  }
+}
+
+@media all and (min-width: 851px) {
+  #triptych .region-triptych-first {
+    padding-right: 16px;
+  }
+
+  #triptych .region-triptych-middle {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  #triptych .region-triptych-last {
+    padding-left: 16px;
+  }
+}
+
+#triptych .block {
+  border-bottom: 0;
+}
+
+#triptych .content {
+  padding: 3px;
+  font-size: 12px;
+  line-height: 1.5em
+}
+
+#triptych h2 {
+  padding: 10px 13px;
+  text-shadow: none;
+  text-align: left;
+  margin: 0;
+}
+
 
 /* Page titles
 /-------------------------------------------------------------- */
 /* Page and full node titles */
-h1.title {
-  font-family: Georgia; /** default if google fonts not enabled **/
-  margin-left: 0;
+h1#page-title {
+  margin-top: .5em;
   margin-bottom: 1em;
-}
-
-/* Default node styles
-/-------------------------------------------------------------- */
-/* Change unpublished and preview colors for dark background themes */
-.node-unpublished {
-  background-color: #fff4f4;
-}
-.preview .node {
-  background-color: #ffffea;
-}
-
-/* Typography for node titles */
-h2.title {
-}
-
-/* Colors and styles for linked node titles, ie. teaser listing at /node */
-h2.title a:link,
-h2.title a:visited {
-}
-
-h2.title a:hover,
-h2.title a:focus,
-h2.title a:active {
-}
-
-/* Separators and padding for node teasers */
-.teaser {
-}
-
-/* Author/date info */
-.meta {
-}
-
-.submitted {
-}
-
-/* Links for nodes (taxonomy, commenting, read more, etc) */
-.node ul.links li {
-}
-.node ul.links a {
-}
-
-/* Only more/read more links */
-div.node .read-more a,
-div.node .more-link a {
 }
 
 
@@ -352,515 +305,51 @@ ul.tabs {
   z-index: 495;
 }
 
-/* Drupal Messages
-/-------------------------------------------------------------- */
-/* General style for all errors/messages (border, padding, etc.) */
-div.content-messages div.messages,
-div.content-help div.help {
-}
 
-/* Status messages: green */
-div.content-messages-inner div.status {
-}
-
-/* Warning messages: yellow */
-div.content-messages-inner div.warning {
-}
-
-/* Error messages: red */
-div.content-messages-inner div.error {
-}
-
-/* Help messages: blue */
-div.content-help-inner div.help {
-}
-
-/* Error that appears when a required form field is not filled out */
-.form-item input.error,
-.form-item textarea.error,
-.form-item select.error {
-  border: 1px solid #aa1144;
-}
-
-/* "New" text and required form field asterisk (default = red) */
-.marker,
-.form-required {
-  color: #aa1144;
-}
-
-/* Default block title styles
-/-------------------------------------------------------------- */
-div.block div.node { margin: 0; }
-
-h2.block-title {
-  font-family: Georgia; /** default if google fonts not enabled **/
-}
-
-/* Breadcrumbs
--------------------------------------------------------------- */
-.breadcrumbs {
-}
-
-.breadcrumbs a:link,
-.breadcrumbs a:visited {
-}
-
-#breadcrumbs-inner { margin-left: 0; }
-
-/* Pagers
--------------------------------------------------------------- */
-ul.pager {
-}
-
-ul.pager li {
-}
-
-ul.pager a,
-ul.pager li.pager-current {
-  border-color: #333;
-}
-
-ul.pager li.pager-current {
-  background-color: #777;
-  color: #fff;
-}
-
-ul.pager a:hover,
-ul.pager a:active,
-ul.pager a:focus {
-  background-color: #777;
-  border-color: #333;
-  color: #fff;
-}
-
-/* Forms
-/-------------------------------------------------------------- */
-/* Typography and backgrounds for all form buttons */
-form input.form-submit {
-  margin: 2px;
-  padding: 3px 5px;
-}
-
-/* Hover style for form buttons */
-form input.form-submit:hover,
-form input.form-submit.hover,
-form input.form-submit:focus {
-}
-
-/* Typography, background, borders, padding for form fields */
-.form-item input,
-.form-item select,
-.form-item textarea {
-}
-
-/* Remove backgrounds and border on radios and checkboxes */
-.form-item .form-radio,
-.form-item .form-checkbox {
-  background: none;
-  border: none !important;
-}
-
-/* Fieldset wrapper around groups of form elements -- add border here */
-fieldset {
-}
-
-/* Typography and spacing for legend of fieldsets */
-fieldset legend {
-}
-
-/* Link style for legend of fieldsets */
-fieldset legend,
-legend.collapse-processed,
-legend.collapse-processed a:link,
-legend.collapse-processed a:visited {
-}
-
-/* Custom icons on (open) collapsible fieldsets */
-html.js fieldset.collapsible legend a:link,
-html.js fieldset.collapsible legend a:visited {
-}
-
-/* Custom icons on (closed) collapsible fieldsets */
-html.js fieldset.collapsed legend a:link,
-html.js fieldset.collapsed legend a:visited {
-}
-
-
-/* Tables
--------------------------------------------------------------- */
-table {
-}
-
-/* Body of tables */
-tbody {
-  border-top: 1px solid #ccc;
-}
-
-/* Header of tables */
-thead th,
-th {
-  border-bottom: 3px solid #ccc;
-}
-
-tbody th {
-  border-bottom: 1px solid #ccc;
-}
-
-/* Alternating row background styles */
-tr.even,
-tr.even td {
-  background-color: #eee;
-  border-bottom: 1px solid #ccc;
-}
-
-tr.odd,
-tr.odd td {
-  background-color: #fff;
-  border-bottom: 1px solid #ccc;
-}
-
-td.active {
-}
-
-tr.drag td,
-tr.drag-previous td {
-  color: #000;
-}
-
-
-/* Maintenance Page
-/-------------------------------------------------------------- */
-/* Maintenance page tpl file in Fusion Core has simplified layout, but you can
-  also add specific styles, such as a background, just for your offline page */
-.in-maintenance  {
-}
-
-
-/*--------------------------------------------------------------*/
-/* Module styles
-/-------------------------------------------------------------- */
-
-
-/* Book
-/-------------------------------------------------------------- */
-.book-navigation .menu {
-  border-top: 1px solid #ccc;
-}
-
-.book-navigation .page-links {
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-}
-
-
-/* Comments
-/-------------------------------------------------------------- */
-/* Style for each individual comment */
-div.comment {
-}
-
-/* Subject (title) of each comment */
-div.comment h3.title {
-}
-
-/* Links (edit, reply, delete) for each comment */
-div.comment div.links a,
-div.comment ul.links a {
-}
-
-/* Alternating styles for even/odd comments */
-.comments div.odd {
-  background-color: #fff;
-}
-
-.comments div.even {
-  background-color: #eee;
-}
-
-/* A special highlight style for a comment by the author of the node */
-.comments div.comment-by-author {
-  background-color: #ddd;
-}
-
-/* Comment signatures */
-.signature {
-  border-top: 1px solid #d6ddb9;
-}
-
-/* User avatars in comments */
-.comment-wrapper .picture img {
-}
-
-
-/* Forum
-/-------------------------------------------------------------- */
-#forum .description {
-}
-
-.forum-topic-navigation {
-  border-top: 1px solid #888;
-  border-bottom: 1px solid #888;
-}
-
-
-/* Poll
-/-------------------------------------------------------------- */
-div.poll div.bar {
-  background-color: #ddd;
-}
-
-div.poll div.bar div.foreground {
-  background-color: #999;
-}
-
-
-/* Profiles
-/-------------------------------------------------------------- */
-.profile .picture {
-  float: none;
-}
-
-/* Styles for sub-headings on user profiles */
-.profile dt {
-  background-color: #ccc;
-}
-
-/* Skinr
+/* OpenChurch Blocks & Pages from Install Profile
 /-------------------------------------------------------------- */
 
 /*************************************
-  Block background styles
+  Weekly Meeting Times Block
 *************************************/
-
-/* All block background styles, adjust spacing */
-.block-background-lt-green.block .inner,
-.block-background-lt-blue.block .inner,
-.block-background-dark-blue.block .inner,
-.block-background-lt-gray.block .inner,
-.block-background-lt-green.block .pane-content,
-.block-background-lt-blue.block .pane-content,
-.block-background-dark-blue.block .pane-content,
-.block-background-lt-gray .pane-content {
-  padding: 10px;
-}
-
-/* Light Green */
-.block-background-lt-green .inner,
-.block-background-lt-green .pane-content {
-  background: #e0f5ee;
-}
-
-/* Light blue */
-.block-background-lt-blue .inner,
-.block-background-lt-blue .pane-content {
-  background: #d6edf5;
-}
-
-/* Dark Blue */
-.block-background-dark-blue .inner,
-.block-background-dark-blue .pane-content {
-  background: #75b0c0; color: #fff;
-}
-  .block-background-dark-blue a { color: #fff; }
-
-/* Light Gray */
-.block-background-lt-gray .inner,
-.block-background-lt-gray .pane-content {
-  background: #f9f9f9;
+#block-block-5 .content p {
+  margin: 0;
+  line-height: 1.5em;
 }
 
 
 /*************************************
-  Block background title styles
+  View Map Directions Block
 *************************************/
-
-/* All block title background styles, adjust spacing */
-
-/* blocks */
-.block-title-med-green h2.block-title,
-.block-title-med-blue h2.block-title,
-.block-title-med-gray h2.block-title,
-.block-title-lt-green h2.block-title {
-  padding: 10px 13px;
-  border-bottom: 1px solid #000;
+#block-block-2 .content {
+  font-size: 1.2em;
+  padding: 15px 10px;
+  text-align: center;
 }
-/* panels */
-div.panels-ipe-display-container .block-title-med-green h2.pane-title,
-div.panels-ipe-display-container .block-title-med-blue h2.pane-title,
-div.panels-ipe-display-container .block-title-med-gray h2.pane-title,
-div.panels-ipe-display-container .block-title-lt-green h2.pane-title {
-  padding: 10px 13px;
-}
-
-.block-title-med-green h2.pane-title,
-.block-title-med-blue h2.pane-title,
-.block-title-med-gray h2.pane-title,
-.block-title-lt-green h2.pane-title, {
-  padding: 10px 13px;
-  border-bottom: 1px solid #000;
+#block-block-2 .content p {
   margin: 0;
 }
 
-  .block-title-med-green.block .inner,
-  .block-title-med-blue.block .inner,
-  .block-title-med-gray.block .inner,
-  .block-title-lt-green.block .inner {
-    padding: 0 0 10px;
-  }
-    .block-title-med-green.block .inner div.content,
-    .block-title-med-blue.block .inner div.content,
-    .block-title-med-gray.block .inner div.content,
-    .block-title-lt-green.block .inner div.content {
-      padding: 0 10px;
-    }
-      .block-title-med-green.block .inner div.content div.content,
-      .block-title-med-blue.block .inner div.content div.content,
-      .block-title-med-gray.block .inner div.content div.content,
-      .block-title-lt-green.block .inner div.content div.content {
-        padding: 0;
-      }
 
-/* Medium Green */
-.block-title-med-green h2.block-title,
-.block-title-med-green h2.pane-title {
-  background: #8cc5b2;
-  color: #0b291f;
-  border-bottom-color: #88b7a7;
-}
-
-/* Medium Blue */
-.block-title-med-blue h2.block-title,
-.block-title-med-blue h2.pane-title {
-  background: #a9cfdc;
-  color: #2a4117;
-  border-bottom-color: #9dc3d0;
-}
-
-/* Medium Gray */
-.block-title-med-gray h2.block-title,
-.block-title-med-gray h2.pane-title {
-  background: #f5f5f5;
-  border-bottom-color: #efefef;
-}
-
-/* Light Green */
-.block-title-lt-green h2.block-title,
-.block-title-lt-green h2.pane-title {
-  background: #adcd84;
-  border-bottom-color: #a6be80;
+/*************************************
+  Contact Us Block
+*************************************/
+#block-block-4 .large {
+  font-size: 2em;
 }
 
 /*************************************
-  Rounded corners style
+  Image Acknowledgements
 *************************************/
-
-.rounded-corners .inner,
-.rounded-corners .pane-content {
-  border-radius: .3em;
-  -webkit-border-radius: .3em;
-  -moz-border-radius: .3em;
+body.page-node-22 #page-page .field-name-body td {
+  background: #fff;
 }
-
-/* combinations of rounded corners with skinr title styles */
-
-/* blocks */
-.block-title-med-green.rounded-corners .inner,
-.block-title-med-blue.rounded-corners .inner,
-.block-title-med-gray.rounded-corners .inner,
-.block-title-lt-green.rounded-corners .inner {
-  border-radius: .5em .5em .3em .3em;
-  -webkit-border-radius: .5em .5em .3em .3em;
-  -moz-border-radius: .5em .5em .3em .3em;
-}
-
-  /* blocks */
-  .block-title-med-green.rounded-corners h2.block-title,
-  .block-title-med-blue.rounded-corners h2.block-title,
-  .block-title-med-gray.rounded-corners h2.block-title,
-  .block-title-lt-green.rounded-corners h2.block-title,
-  /* panels */
-  .block-title-med-green.rounded-corners h2.pane-title,
-  .block-title-med-blue.rounded-corners h2.pane-title,
-  .block-title-med-gray.rounded-corners h2.pane-title,
-  .block-title-lt-green.rounded-corners h2.pane-title {
-    border-radius: .3em .3em 0 0;
-    -webkit-border-radius: .3em .3em 0 0;
-    -moz-border-radius: .3em .3em 0 0;
-  }
 
 /*************************************
-  Margin/Padding top/bottom styles
+  Media Mobile Links Block
 *************************************/
-
-.margin-top-1em { margin-top: 1em; }
-.margin-top-2em { margin-top: 2em; }
-.margin-bottom-1em { margin-bottom: 1em; }
-.margin-bottom-2em { margin-bottom: 2em; }
-.padding-top-1em { padding-top: 1em; }
-.padding-top-2em { padding-top: 2em; }
-.padding-bottom-1em { padding-bottom: 1em; }
-.padding-bottom-2em { padding-bottom: 2em; }
-
-/* Admin Toolbar http://drupal/project/toolbar z-index fix */
-div#toolbar-toolbar {  z-index: 1000; }
-
-
-/*************************************
-  OpenChurch Header Styles
-*************************************/
-
-body.oc-header-gray-bar #header-site-info { margin-top: 0; padding-top: 15px; }
-
-body.oc-header-gray-bar .header-group { height: 83px; margin-bottom: 10px; }
-
-body.oc-header-gray-bar #site-name {
-  font-size: 2.2em;
-  margin-top: 9px;
-  margin-bottom: 7px;
-  max-width: 260px; /* For long titles */
-}
-
-body.oc-header-gray-bar #site-name a:link, body.oc-header-gray-bar #site-name a:visited,
-body.oc-header-gray-bar #site-name a:hover, body.oc-header-gray-bar #site-name a:active {
-  color: #fff;
-}
-body.oc-header-gray-bar #page {
-  background: url(../images/oc-gray-header-bg.png) top left repeat-x;
-  width: 100%;
-}
-
-body.oc-header-gray-bar #logo {
-  margin-right: 7px;
-}
-
-body.oc-header-gray-bar #logo img { height: 40px; }
-
-body.oc-header-gray-bar #block-superfish-1 { margin-top: 5px; }
-
-body.oc-header-gray-bar #block-superfish-1 ul.sf-menu a,
-body.oc-header-gray-bar #block-superfish-1 ul.sf-menu a:visited {
-  color: #fff; border-top: 7px solid transparent;
-}
-
-body.oc-header-gray-bar #block-superfish-1 ul.sf-menu a.active,
-body.oc-header-gray-bar #block-superfish-1 ul.sf-menu a.active:visited {
-  font-weight: bold; border-top-color: #D6E6C2;
-}
-
-body.oc-header-gray-bar #block-superfish-1 ul.sf-menu a:hover {
-  border-top: 7px solid #d6edf5;
-}
-
-
-/* Style for individual dropdown menu items, add border-bottom for separators */
-body.oc-header-gray-bar #block-superfish-1 ul.sf-menu li li {
-}
-  body.oc-header-gray-bar #block-superfish-1 ul.sf-menu li li a,
-  body.oc-header-gray-bar #block-superfish-1 ul.sf-menu li li a.active,
-  body.oc-header-gray-bar #block-superfish-1 ul.sf-menu li li a:visited {
-    border-top: 5px solid #fff; color: #000;
+@media (min-width: 901px) {
+  #block-menu-block-1 {
+    display: none;
   }
-  body.oc-header-gray-bar #block-superfish-1 ul.sf-menu li li a:hover {
-    border-top: 5px solid #ccc;
-    background: #d6edf5;
-  }
+}

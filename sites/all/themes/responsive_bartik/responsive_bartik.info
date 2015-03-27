@@ -1,14 +1,14 @@
-name = OpenChurch
-description = OpenChurch (responsive bartik) sub-theme.
-base theme = responsive_bartik
+name = Responsive Bartik
+description = A flexible, recolorable theme with many regions and a responsive, mobile-first layout.
+version = VERSION
 core = 7.x
-engine = phptemplate
 
-stylesheets[all][] = css/openchurch-style.css
-stylesheets[all][] = css/openchurch-navigation.css
+stylesheets[all][] = css/layout.css
+stylesheets[all][] = css/style.css
 stylesheets[all][] = css/colors.css
-stylesheets[all][] = css/radix_layouts.css
-scripts[] = js/openchurch-script.js
+stylesheets[print][] = css/print.css
+
+scripts[] = js/collapsible-menu.js
 
 regions[header] = Header
 regions[help] = Help
@@ -33,10 +33,9 @@ regions[footer] = Footer
 
 settings[shortcut_module_link] = 0
 
-fonts[google_fonts_api][] = "Neuton&subset=latin#regular"
-; Information added by Drupal.org packaging script on 2014-12-26
-version = "7.x-2.1-beta3"
+; Information added by Drupal.org packaging script on 2014-10-15
+version = "7.x-1.0"
 core = "7.x"
-project = "openchurch_theme"
-datestamp = "1419631218"
+project = "responsive_bartik"
+datestamp = "1413392482"
 
