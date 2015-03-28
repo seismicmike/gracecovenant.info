@@ -1,6 +1,7 @@
 name = Grace Covenant Church
 description = Grace Covenant Church theme (a customization of the Openchurch sub-theme of responsive-bartik).
 base theme = responsive_bartik
+version = 7.x-1.0
 core = 7.x
 engine = phptemplate
 
