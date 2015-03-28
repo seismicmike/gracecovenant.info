@@ -372,3 +372,19 @@ body.page-node-22 #page-page .field-name-body td {
   padding-left: 10px;
   vertical-align: top;
 }
+
+.gcc-home-sidebar {
+  margin-top: -20px;
+}
+
+.region-footer-firstcolumn, .region-footer-secondcolumn, .region-footer-thirdcolumn {
+  width: 33% !important;
+}
+
+.region-footer-fourthcolumn {
+  width: 0% !important;
+}
+
+#footer-wrapper .block {
+  border: 0px !important;
+}
